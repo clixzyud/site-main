@@ -5,75 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>clixzy.xyz</title>
     <style>
-     body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background-color: #000;
-    color: #fff;
-    font-family: monospace;
-    overflow: hidden;
-    cursor: url('https://clixzyud.github.io/site-main/cursor.png'), auto; /* Custom cursor here */
-}
-        #main-content {
-            height: 100vh;
-            overflow: auto;
-            background-color: #000000;
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #000;
+            color: #fff;
+            font-family: monospace;
+            overflow: hidden;
+            cursor: url('cursor.png'), auto; /* Custom cursor */
         }
+
         .content {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
+            height: 100vh;
+            padding: 0 20px;
             position: relative;
         }
+
         .text-content {
             z-index: 1;
             text-align: center;
         }
-        .image-container {
-            position: absolute;
-            top: 0;
-            right: 0;
-            z-index: 2;
-        }
+
         .anime-girl {
             max-height: 80vh;
             object-fit: contain;
         }
+
         #ascii-art {
             font-size: 0.9em;
             white-space: pre;
             text-align: center;
             margin-bottom: 20px;
         }
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+
         .button {
             background-color: transparent;
-            color: #F8F8F2;
+            color: #fff;
             border: none;
             padding: 10px 20px;
-            margin: 5px 0;
+            margin: 5px;
             cursor: pointer;
             transition: color 0.3s;
             text-decoration: none;
             display: block;
             font-size: 1em;
+            font-family: 'Roboto Mono', monospace;
             font-weight: 300;
             text-align: center;
-            width: 100%;
         }
-        #telegram-button:hover { color: #0088cc; }
-        #twitter-button:hover { color: #1DA1F2; }
-        #github-button:hover { color: #6e5494; }
-        #music-container {
+
+        #telegram-button:hover {
+            color: #0088cc;
+        }
+
+        #twitter-button:hover {
+            color: #1DA1F2;
+        }
+
+        #github-button:hover {
+            color: #6e5494;
+        }
+
+        #now-playing-container {
             position: fixed;
             left: 0;
             right: 0;
@@ -84,85 +82,46 @@
             width: 100%;
             z-index: 3;
         }
-        #music-content {
+
+        #now-playing {
             display: inline-block;
-            position: relative;
-            width: 300px;
-            overflow: hidden;
+            padding-left: 100%;
+            animation: scroll-left 20s linear infinite;
         }
-        #play-button, #now-playing {
-            display: inline-block;
-            padding: 0 20px;
-            animation: scroll-text 5s linear infinite; /* Fast scroll */
-        }
-        #music-border-left, #music-border-right {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 20px;
-            background-color: #000000;
-            z-index: 1;
-        }
-        #music-border-left {
-            left: 0;
-        }
-        #music-border-right {
-            right: 0;
-        }
-        @keyframes scroll-text {
-            0% { transform: translateX(100%); }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
-        }
-        /* Hide image on mobile devices */
-        @media (max-width: 767px) {
-            .image-container {
-                display: none;
-            }
         }
     </style>
 </head>
 <body>
-    <div id="main-content">
-        <div class="content">
-            <div class="text-content">
-                <pre id="ascii-art">
+    <div class="content">
+        <div class="text-content">
+            <pre id="ascii-art">
 ____   _____  __    _    _  _____  ____  
 | __ ) / _ \ \/ /   / \  | |/ / _ \/ ___| 
 |  _ \| | | \  /   / _ \ | ' / | | \___ \ 
 | |_) | |_| /  \  / ___ \| . \ |_| |___) |
 |____/ \___/_/\_\/_/   \_\_|\_\___/|____/ 
-                                                         
-                    </pre>
+            </pre>
 
-                <div class="button-container">
-                    <a href="https://clixzyud.github.io/asrfgerg/ioctl.rar" id="telegram-button" class="button" target="_blank">Free Ioctl source</a>
-                    <a href="https://discord.com/users/1154318010924941354" id="twitter-button" class="button" target="_blank">My Discord</a>
-                 <!--   <a href="idk" id="github-button" class="button" target="_blank">      </a>-->
-                </div>
-            </div>
-          <!--   <div class="image-container"></div>
-                <img src="anime_girl.png" alt="Anime girl" class="anime-girl">
-
-//the shitty icon 
-            </div>-->
-        </div>
-        <div id="music-container">
-            <div id="music-content">
-                <div id="music-border-left">|</div>
-                <div id="music-border-right">|</div>
-                <span id="play-button">♪ Click to play ♪</span>
-                <span id="now-playing" style="display: none;">you can't escape poulioong</span> <!-- Updated song name -->
+            <div class="button-container">
+                <a href="https://clixzyud.github.io/asrfgerg/ioctl.rar" id="telegram-button" class="button" target="_blank">Free Ioctl source</a>
+                <a href="https://discord.com/users/1154318010924941354" id="twitter-button" class="button" target="_blank">My Discord</a>
             </div>
         </div>
+    </div>
+    <div id="now-playing-container">
+        <div id="now-playing">♪ You can't escape poulioong ♪</div>
     </div>
 
     <script>
         const audio = new Audio('https://clixzyud.github.io/site-main/poyliotragoudo.mp3');
 
-        document.getElementById('play-button').addEventListener('click', function() {
+        document.getElementById('now-playing').addEventListener('click', function() {
             audio.play().then(() => {
-                document.getElementById('play-button').style.display = 'none';
-                document.getElementById('now-playing').style.display = 'inline-block';
+                document.getElementById('now-playing').innerText = 'Now playing: poulioong';
             }).catch(error => {
                 console.error('Error playing audio:', error);
                 alert('Failed to play audio. Please check the console for more information.');
@@ -171,7 +130,6 @@ ____   _____  __    _    _  _____  ____
 
         audio.addEventListener('error', function() {
             console.error('Audio error:', audio.error);
-            console.log('Audio URL:', audio.src);
             alert('Failed to load audio. Please check the console for more information.');
         });
     </script>
