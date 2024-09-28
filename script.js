@@ -1,4 +1,4 @@
-const audio = new Audio('https://clixzyud.github.io/asrfgerg/poyliossong.mp3');
+const audio = new Audio('https://clixzyud.github.io/site-main/poyliotragoudo.mp3');
 
 document.getElementById('play-button').addEventListener('click', function() {
     audio.play().then(() => {
