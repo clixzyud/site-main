@@ -6,8 +6,8 @@ body, html {
     color: #fff;
     font-family: monospace;
     overflow: hidden;
+    cursor: url('https://clixzyud.github.io/site-main/cursor.pngr'), auto; /* Add custom cursor here */
 }
-
 .content {
     display: flex;
     flex-direction: column;
