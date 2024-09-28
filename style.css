@@ -8,6 +8,8 @@ body, html {
     overflow: hidden;
     cursor: url('https://clixzyud.github.io/site-main/cursor.pngr'), auto; /* Add custom cursor here */
 }
+cursor: url('https://clixzyud.github.io/site-main/cursor.png'), auto;
+
 .content {
     display: flex;
     flex-direction: column;
