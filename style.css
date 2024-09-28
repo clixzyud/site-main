@@ -6,30 +6,22 @@ body, html {
     color: #fff;
     font-family: monospace;
     overflow: hidden;
-    cursor: url('https://clixzyud.github.io/site-main/cursor.pngr'), auto; /* Add custom cursor here */
+    cursor: url('cursor.png'), auto; /* Custom cursor with local file */
 }
-cursor: url('https://clixzyud.github.io/site-main/cursor.png'), auto;
 
 .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Ensure content is centered horizontally */
+    align-items: center;
     height: 100vh;
     padding: 0 20px;
-    position: relative; /* Necessary for absolute positioning of the image */
+    position: relative;
 }
 
 .text-content {
     z-index: 1;
-    text-align: center; /* Center text content */
-}
-
-.image-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
+    text-align: center;
 }
 
 .anime-girl {
@@ -40,7 +32,7 @@ cursor: url('https://clixzyud.github.io/site-main/cursor.png'), auto;
 #ascii-art {
     font-size: 0.9em;
     white-space: pre;
-    text-align: center; /* Center ASCII art */
+    text-align: center;
     margin-bottom: 20px;
 }
 
